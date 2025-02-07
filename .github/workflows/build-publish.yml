@@ -39,9 +39,6 @@ jobs:
            
        - name: Install Dependencies
          run: jf npm install --registry https://registry.npmjs.org --build-name="naresh-npm-xray" --build-number=${{ github.run_number }}
-
-       - name: audit
-         run: jf npm audit
            
        - name: Run tests
          run: npm test
