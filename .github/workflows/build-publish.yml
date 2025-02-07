@@ -48,5 +48,5 @@ jobs:
           jf rt build-collect-env
           # Collect VCS details from git and add them to the build
           jf rt build-add-git
-          # Publish build info
+          # Publish build info 
           jf rt build-publish
