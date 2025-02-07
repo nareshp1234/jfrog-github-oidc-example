@@ -33,11 +33,9 @@ jobs:
        - name: Set CLI Config
          run: jf npm-config --global=true --repo-resolve=$PLATFORM_REPO --repo-deploy=$PLATFORM_REPO
 
-       - name: Test
-         run: npm get registry
            
        - name: Install Dependencies
-         run: jf npm install
+         run: jf npm install --registry https://registry.npmjs.org
            
        - name: Run tests
          run: npm test
