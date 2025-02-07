@@ -29,6 +29,9 @@ jobs:
            JF_URL: ${{ secrets.JF_URL }}
          with:
            oidc-provider-name: ${{ env.OIDC_PROVIDER }}
+           
+       - name: Run Audit scan for the git workspace
+         run: jf audit .
 
        - name: Set CLI Config
          run: jf npm-config --global=true --repo-resolve=$PLATFORM_REPO --repo-deploy=$PLATFORM_REPO
@@ -57,3 +60,6 @@ jobs:
           jf rt build-add-git naresh-npm-xray ${{ github.run_number }}
           # Publish build info 
           jf rt build-publish naresh-npm-xray ${{ github.run_number }}
+
+       - name: Run build scan
+         run: jf bs naresh-npm-xray ${{ github.run_number }}
