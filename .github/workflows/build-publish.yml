@@ -52,8 +52,11 @@ jobs:
           jf rt build-collect-env naresh-npm-xray ${{ github.run_number }}
           # Collect VCS details from git and add them to the build
           jf rt build-add-git naresh-npm-xray ${{ github.run_number }}
+          jf rt build-add-dependencies . naresh-npm-xray ${{ github.run_number }}
           # Publish build info 
           jf rt build-publish naresh-npm-xray ${{ github.run_number }}
+
+          
 
        - name: Run build scan
          run: jf rt build-scan naresh-npm-xray ${{ github.run_number }}
