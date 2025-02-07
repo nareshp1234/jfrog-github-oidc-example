@@ -35,19 +35,19 @@ jobs:
 
            
        - name: Install Dependencies
-         run: jf npm install --registry https://registry.npmjs.org
+         run: jf npm install --registry https://registry.npmjs.org --build-name="naresh-npm-xray" --build-number=${{ github.run_number }}
            
        - name: Run tests
          run: npm test
          
        - name: Publish
-         run: jf npm publish
+         run: jf npm publish --build-name="naresh-npm-xray" --build-number=${{ github.run_number }}
          
        - name: Publish Build info With JFrog CLI
          run: |
           # Collect environment variables for the build
-          jf rt build-collect-env
+          jf rt build-collect-env naresh-npm-xray ${{ github.run_number }}
           # Collect VCS details from git and add them to the build
-          jf rt build-add-git
+          jf rt build-add-git naresh-npm-xray ${{ github.run_number }}
           # Publish build info 
-          jf rt build-publish
+          jf rt build-publish naresh-npm-xray ${{ github.run_number }}
