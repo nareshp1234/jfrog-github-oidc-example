@@ -49,9 +49,6 @@ jobs:
        - name: Publish
          run: jf npm publish --build-name="naresh-npm-xray" --build-number=${{ github.run_number }}
          
-       - name: xray scan
-         run: jf scan .  --extended-table=true --format=simple-json  --watches="naresh-test-hill"
-         
        - name: Publish Build info With JFrog CLI
          run: |
           # Collect environment variables for the build
