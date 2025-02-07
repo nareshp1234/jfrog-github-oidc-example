@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/yonarbel/create-package-example#readme",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "malicious-npm-package": "0.0.1-security"
   },
   "devDependencies": {
     "jest": "^29.3.1"
